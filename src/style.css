@@ -1,0 +1,22 @@
+h1,
+p {
+  font-family: Lato;
+}
+
+form {
+  border: 1px solid;
+  padding: 10px;
+}
+
+.labelInput {
+  margin: 10px 0;
+  display: flex;
+}
+
+.labelInput label {
+  padding-right: 10px;
+}
+
+.errors {
+  color: red;
+}
