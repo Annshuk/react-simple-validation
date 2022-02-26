@@ -12,9 +12,7 @@ const intialState = {
 
 const FormSection = () => {
   const [fields, setUserName] = useState(intialState);
-
   const [errors, setErrors] = useState({});
-
   const records = useRef(
     JSON.parse(sessionStorage.getItem('userInformatiion')) || []
   );
