@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef } from 'react';
 
 import { InputLabel } from './InputLabel';
 import { ShowSaved } from './ShowSaved';
@@ -17,14 +17,14 @@ const FormSection = () => {
     JSON.parse(sessionStorage.getItem('userInformatiion')) || []
   );
 
-  const handleUserChange = useCallback(({ target }) => {
+  const handleUserChange = ({ target }) => {
     setUserName((prevState) => ({ ...prevState, [target.name]: target.value }));
 
     setErrors((prevState) => ({
       ...prevState,
       [target.name]: !target.value,
     }));
-  }, []);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
