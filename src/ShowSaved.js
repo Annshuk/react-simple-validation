@@ -14,7 +14,7 @@ const ShowSaved = memo(() => {
   console.log('Show Saved');
 
   return (
-    <>
+    <div style={{ marginTop: '10px' }}>
       <button onClick={showAll}>
         {`${!toogle ? 'Show' : 'Hide'}`} all user
       </button>
@@ -34,7 +34,7 @@ const ShowSaved = memo(() => {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 });
 
