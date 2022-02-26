@@ -5,7 +5,7 @@ import FormSection from './FormSection';
 import './style.css';
 
 const App = () => {
-  console.log('render multiple');
+  console.log('render first time');
   return <FormSection />;
 };
 

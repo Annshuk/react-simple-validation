@@ -19,15 +19,21 @@ const ShowSaved = memo(() => {
         {`${!toogle ? 'Show' : 'Hide'}`} all user
       </button>
 
-      <InputLabel name="ausername" label="Young" readOnly />
-      <InputLabel name="aage" label="Old" readOnly />
-
-      {toogle &&
-        records.map((item, index) => (
-          <p key={index}>
-            {item.username} , {item.age}
-          </p>
-        ))}
+      {toogle && (
+        <div style={{ marginTop: '10px' }}>
+          {records.map(({ username, age }, index) => (
+            <label key={index}>
+              <InputLabel
+                name="userName"
+                label="User Name"
+                readOnly
+                value={username}
+              />
+              <InputLabel name="age" label="Age" readOnly value={age} />
+            </label>
+          ))}
+        </div>
+      )}
     </>
   );
 });
