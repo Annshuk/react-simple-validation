@@ -8,7 +8,7 @@ const ShowSaved = memo(() => {
   const [toogle, setToggles] = React.useState(false);
 
   const showAll = () => {
-    setToggles((prev) => !prev);
+    setToggles((show) => !show);
   };
 
   console.log('Show Saved');
