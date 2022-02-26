@@ -31,17 +31,16 @@ const FormSection = () => {
 
     const hasValue = [...Object.values(fields)].every(Boolean);
 
-    setErrors((prevState) => {
-      return {
-        ...prevState,
-        username: !fields.username,
-        age: !fields.age,
-      };
-    });
+    setErrors((prevState) => ({
+      ...prevState,
+      username: !fields.username,
+      age: !fields.age,
+    }));
 
     if (hasValue) {
-      setUserName(intialState);
       records.current = [...records.current, fields];
+      setUserName(intialState);
+
       sessionStorage.setItem(
         'userInformatiion',
         JSON.stringify(records.current)
