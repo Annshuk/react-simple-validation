@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 
 import { InputLabel } from './InputLabel';
 import { ShowSaved } from './ShowSaved';
-import useUniqueId from './useUniqueId';
+
 import './style.css';
 
 const intialState = {
@@ -11,8 +11,6 @@ const intialState = {
 };
 
 const FormSection = () => {
-  const makeUnique = useUniqueId();
-
   const [fields, setUserName] = useState(intialState);
   const [errors, setErrors] = useState({});
   const records = useRef(
