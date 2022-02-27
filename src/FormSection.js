@@ -54,6 +54,8 @@ const FormSection = () => {
     }
   };
 
+  console.log('Form section render');
+
   return (
     <>
       <form>
@@ -64,6 +66,7 @@ const FormSection = () => {
           value={fields.username}
         />
         <ErrorMessage errorFor="username" message="username is required" />
+
         <InputLabel
           name="age"
           type="number"
