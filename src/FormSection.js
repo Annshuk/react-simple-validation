@@ -1,7 +1,12 @@
 import React, { useState, useRef } from 'react';
 
+import { useSetRecoilState } from 'recoil';
+
 import { InputLabel } from './InputLabel';
 import { ShowSaved } from './ShowSaved';
+import { ErrorMessage } from './ErrorMessage';
+
+import { errorState } from './recoil/atoms';
 
 import './style.css';
 
@@ -12,7 +17,8 @@ const intialState = {
 
 const FormSection = () => {
   const [fields, setUserName] = useState(intialState);
-  const [errors, setErrors] = useState({});
+  const setErrors = useSetRecoilState(errorState);
+
   const records = useRef(
     JSON.parse(sessionStorage.getItem('userInformatiion')) || []
   );
@@ -57,7 +63,7 @@ const FormSection = () => {
           onChange={handleUserChange}
           value={fields.username}
         />
-        {errors?.username && <span className="errors">please fill</span>}
+        <ErrorMessage errorFor="username" message="username is required" />
         <InputLabel
           name="age"
           type="number"
@@ -65,7 +71,9 @@ const FormSection = () => {
           onChange={handleUserChange}
           value={fields.age}
         />
-        {errors?.age && <span className="errors">please fill</span>}
+
+        <ErrorMessage errorFor="age" message="age is required" />
+
         <br />
         <button onClick={handleSubmit}>Submit</button>
       </form>

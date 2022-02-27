@@ -1,12 +1,25 @@
 import React from 'react';
 
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
+
 import FormSection from './FormSection';
 
 import './style.css';
 
 const App = () => {
   console.log('render first time');
-  return <FormSection />;
+
+  return (
+    <RecoilRoot>
+      <FormSection />
+    </RecoilRoot>
+  );
 };
 
 export default App;
