@@ -11,8 +11,6 @@ const ShowSaved = memo(() => {
     setToggles((show) => !show);
   };
 
-  console.log('Show Saved');
-
   return (
     <div style={{ marginTop: '10px' }}>
       <button onClick={showAll}>
