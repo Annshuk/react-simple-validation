@@ -3,7 +3,7 @@ import React, { useMemo, memo } from 'react';
 import { useRecoilValue } from 'recoil';
 import { errorsFromFields } from './recoil/selectors';
 
-const ErrorMessage = ({ message = '', errorFor = '' }) => {
+const ErrorMessage = memo(({ message = '', errorFor = '' }) => {
   const errorFields = useRecoilValue(errorsFromFields);
 
   const errorField = useMemo(
@@ -12,9 +12,7 @@ const ErrorMessage = ({ message = '', errorFor = '' }) => {
     [errorFields]
   );
 
-  console.log('error', errorFor);
-
   return errorField;
-};
+});
 
 export { ErrorMessage };
