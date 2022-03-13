@@ -11,7 +11,7 @@ import './style.css';
  * form fields
  */
 const FormSection = () => {
-  const { onChange, onSubmit, fields } = useFormHandle();
+  const { onChange, onSubmit, fields, errors } = useFormHandle();
 
   return (
     <>

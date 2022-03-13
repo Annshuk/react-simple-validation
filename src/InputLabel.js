@@ -1,16 +1,24 @@
-import React, { memo } from 'react';
+import React, { memo, useRef } from 'react';
 
 import { Input } from './Input';
 import { ErrorMessage } from './ErrorMessage';
 
-const InputLabel = memo(({ label, name, value, onChange, ...rest }) => {
-  console.log(name, 'Form section render');
+const InputLabel = memo(({ label, name, value, onChange, errors, ...rest }) => {
+  const inputRef = useRef(name);
 
   return (
     <div className="labelInput">
       <label htmlFor={name}>{label}</label>
-      <Input name={name} value={value} onChange={onChange} {...rest} />
-      <ErrorMessage errorFor={name} message={`${name} is requied`} />
+      <Input
+        id={name}
+        name={name}
+        value={value}
+        onChange={onChange}
+        ref={inputRef}
+        autoComplete="off"
+        {...rest}
+      />
+      <ErrorMessage errorFor={name} message={`${name} is required`} />
     </div>
   );
 });

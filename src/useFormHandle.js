@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from 'react';
-import { useSetRecoilState, useRecoilCallback } from 'recoil';
+import { useRecoilState } from 'recoil';
 
 import { errorState } from './recoil/atoms';
 
@@ -10,7 +10,7 @@ const intialState = {
 
 const useFormHandle = () => {
   const [fields, setFields] = useState(intialState);
-  const setErrors = useSetRecoilState(errorState);
+  const [errors, setErrors] = useRecoilState(errorState);
 
   const records = useRef(
     JSON.parse(sessionStorage.getItem('userInformatiion')) || []
@@ -38,7 +38,6 @@ const useFormHandle = () => {
 
     setErrors((prevState) => ({
       ...prevState,
-
       username: !fields.username,
       age: !fields.age,
     }));
@@ -58,6 +57,7 @@ const useFormHandle = () => {
     onChange: handleInputChange,
     onSubmit,
     fields,
+    errors,
   };
 };
 
