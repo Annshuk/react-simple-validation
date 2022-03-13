@@ -6,6 +6,10 @@ import { ShowSaved } from './ShowSaved';
 
 import './style.css';
 
+/**
+ * FormSection
+ * form fields
+ */
 const FormSection = () => {
   const { onChange, onSubmit, fields } = useFormHandle();
 
