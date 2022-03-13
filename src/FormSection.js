@@ -24,11 +24,12 @@ const FormSection = () => {
   );
 
   const handleUserChange = ({ target }) => {
-    setUserName((prevState) => ({ ...prevState, [target.name]: target.value }));
+    const value = target.value;
+    setUserName((prevState) => ({ ...prevState, [target.name]: value }));
 
     setErrors((prevState) => ({
       ...prevState,
-      [target.name]: !target.value,
+      [target.name]: !value,
     }));
   };
 
