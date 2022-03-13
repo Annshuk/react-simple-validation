@@ -4,6 +4,8 @@ import { Input } from './Input';
 import { ErrorMessage } from './ErrorMessage';
 
 const InputLabel = memo(({ label, name, value, onChange, ...rest }) => {
+  console.log(name, 'Form section render');
+
   return (
     <div className="labelInput">
       <label htmlFor={name}>{label}</label>

@@ -1,10 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 
 import { useSetRecoilState } from 'recoil';
 
 import { InputLabel } from './InputLabel';
 import { ShowSaved } from './ShowSaved';
-import { ErrorMessage } from './ErrorMessage';
 
 import { errorState } from './recoil/atoms';
 
@@ -23,7 +22,12 @@ const FormSection = () => {
     JSON.parse(sessionStorage.getItem('userInformatiion')) || []
   );
 
-  const handleUserChange = ({ target }) => {
+  /**
+   * handleInputChange
+   * this callback will render only specific field
+   * on change
+   */
+  const handleInputChange = useCallback(({ target }) => {
     const value = target.value;
     setUserName((prevState) => ({ ...prevState, [target.name]: value }));
 
@@ -31,7 +35,7 @@ const FormSection = () => {
       ...prevState,
       [target.name]: !value,
     }));
-  };
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -55,15 +59,13 @@ const FormSection = () => {
     }
   };
 
-  console.log('Form section render');
-
   return (
     <>
       <form>
         <InputLabel
           name="username"
           label="Name :"
-          onChange={handleUserChange}
+          onChange={handleInputChange}
           value={fields.username}
         />
 
@@ -71,7 +73,7 @@ const FormSection = () => {
           name="age"
           type="number"
           label="Age :"
-          onChange={handleUserChange}
+          onChange={handleInputChange}
           value={fields.age}
         />
 
