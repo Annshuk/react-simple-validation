@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from 'react';
-import { useSetRecoilState } from 'recoil';
+import { useSetRecoilState, useRecoilCallback } from 'recoil';
 
 import { errorState } from './recoil/atoms';
 
@@ -38,6 +38,7 @@ const useFormHandle = () => {
 
     setErrors((prevState) => ({
       ...prevState,
+
       username: !fields.username,
       age: !fields.age,
     }));
