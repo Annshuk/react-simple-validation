@@ -12,8 +12,6 @@ const ErrorMessage = memo(({ message = '', errorFor = '' }) => {
     [errorFields]
   );
 
-  console.log(errorFields);
-
   return errorField;
 });
 

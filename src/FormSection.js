@@ -66,7 +66,6 @@ const FormSection = () => {
           onChange={handleUserChange}
           value={fields.username}
         />
-        <ErrorMessage errorFor="username" message="username is required" />
 
         <InputLabel
           name="age"
@@ -75,8 +74,6 @@ const FormSection = () => {
           onChange={handleUserChange}
           value={fields.age}
         />
-
-        <ErrorMessage errorFor="age" message="age is required" />
 
         <br />
         <button onClick={handleSubmit}>Submit</button>
